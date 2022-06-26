@@ -71,6 +71,98 @@ return res;
 	
 }
 
+
+public static void sort(int[] ar) {
+	if (ifSorted(ar)==false)
+			{
+	for (int i=1; i<ar.length;i++) {
+		moveMaxToEnd(ar);
+	}		
+	}
+	//TODO
+	//Improve algorithm with a proper moveMaxtoEnd method
+	
+}
+
+private static boolean ifSorted(int[] ar) {
+	
+	boolean sorted = true;
+
+	for (int i = 1; i < ar.length; i++) {
+	    if (ar[i] > ar[i-1]) {
+	        sorted = false;
+	        break;
+	    }
+	}
+return sorted;
+}
+
+
+private static void moveMaxToEnd(int[] ar) 
+{
+	
+//if (index<(ar.length))
+//{
+    
+	for (int i=1; i<ar.length; i++) {
+		if (ar[i-1]>ar[i]) {
+			swap(ar,i);
+		}
+	}
+}
+	//TODO
+	//(1)improve algorithm of moveMaxToEnd: no compare of elements that
+    // think of additional parameter of method with code update
+	//(2) terminate algorithm once array is already sort(thing of returning some value with update)
+	
+
+
+
+private static void swap(int[] ar, int index) {
+	int tmp = ar[index-1];
+	ar[index-1]=ar[index];
+	ar[index]=tmp;
+}
+
+/**
+ * 
+ * @param ar - sorted array
+ * @param number
+ * @return if the given number exists in the given array then returns the index of first occurency
+ * otherwise returns negative value of (index+1) where index is the index 
+ * at which the given number should have been;
+ */
+
+public static int binaryIndexOf(int[] ar, int number) {
+	int left =0;
+	int right= ar.length-1;
+	int middle= ar.length/2;
+	while(left<=right && ar[middle]!=number ) {
+		if (ar[middle]<number) {
+			left = middle+1;//looking for the number will be in right part of the array
+
+		} else {
+			right= middle -1; // looking for the number will be in the left part of the arrray
+		}
+		middle=(left+right)/2;
+		
+	}
+	
+//	return left > right ? -1 : middle ;
+int res =left;
+if (middle==ar.length) {
+	res=middle;
+}
+
+while(res>1&&ar[res-1]==number) {
+	res=res-1;
+}
+	
+	
+    return left > right ? -1*(res+1) :res ;
+	
+}
+
 }
 
 
