@@ -59,9 +59,9 @@ void addNumberTest() {
 	}
   @Test
   void sortSmallTest() {
-//  int ar[] = new int[SMALL_N_NUMBERS];
- // fillRandomNumbers(ar);
-  int ar[] = {2,4,8,2,3,7,56,7,16,64,12,1,1};
+ int ar[] = new int[SMALL_N_NUMBERS];
+  fillRandomNumbers(ar);
+ // int ar[] = {2,4,8,2,3,7,56,7,16,64,12,1,1};
   ArrayInt.sort(ar);
   runSortTest(ar);
   }
@@ -122,6 +122,10 @@ private void fillRandomNumbers(int[] ar) {
 	
 }
 }
+
+
+
+
 
 	
 		

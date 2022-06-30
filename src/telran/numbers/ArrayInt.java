@@ -73,16 +73,17 @@ return res;
 
 
 public static void sort(int[] ar) {
-	if (ifSorted(ar)==false)
-			{
-	for (int i=1; i<ar.length;i++) {
-		moveMaxToEnd(ar);
-	}		
+
+		int length=ar.length;
+	do {
+		moveMaxToEnd(ar,length);
+		length--;
+	}	while (ifSorted(ar)==false);	
 	}
 	//TODO
 	//Improve algorithm with a proper moveMaxtoEnd method
 	
-}
+
 
 private static boolean ifSorted(int[] ar) {
 	
@@ -98,13 +99,13 @@ return sorted;
 }
 
 
-private static void moveMaxToEnd(int[] ar) 
+private static void moveMaxToEnd(int[] ar,int length) 
 {
 	
 //if (index<(ar.length))
 //{
     
-	for (int i=1; i<ar.length; i++) {
+	for (int i=1; i<length; i++) {
 		if (ar[i-1]>ar[i]) {
 			swap(ar,i);
 		}
