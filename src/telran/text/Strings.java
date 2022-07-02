@@ -1,4 +1,4 @@
-package telran.test;
+package telran.text;
 
 	public class Strings {
 		/**
