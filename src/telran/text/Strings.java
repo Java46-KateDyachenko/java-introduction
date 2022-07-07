@@ -1,6 +1,9 @@
 package telran.text;
 
 	public class Strings {
+		private static final int MIN_NUM = 0;
+		private static final int MAX_NUM = 999;
+
 		/**
 		 * 
 		 * @param str1 ascii string with no repeated symbols
@@ -66,5 +69,29 @@ package telran.text;
 		return res;
 		
 	}
+	
+static	public String join(String[] array,String delimiter) {
+		//String "+" operator based solution
+      //  return stringPluseSolution(array,delimiter);	
+        //StringBuilder attend based solution
+      return stringBuilderSolution(array,delimiter);
+
+	}
+	private static String stringBuilderSolution(String[] array, String delimiter) {
+	StringBuilder strBuilder = new StringBuilder(array[0]);
+	for (int i=1; i< array.length;i++) {
+		strBuilder.append(delimiter).append(array[i]);
+	}
+	return strBuilder.toString();
+}
+	static private String stringPluseSolution(String[] array, String delimiter) {
+		String res=array[0]; //assumption^ there is a least one string
+		for (int i=1;i<array.length;i++) {
+			res+=delimiter+array[i];
+		}
+		return res;
+	}
+	
+
 	}
 

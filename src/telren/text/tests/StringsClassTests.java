@@ -8,6 +8,8 @@ import telran.text.Strings;
 
 class StringsClassTests {
 
+private static final int N_RUNS=10000;
+private static final int N_STRINGS = 10000;
 	@Test
 	void deepCompareTest() {
 	String str1="123,tT89";
@@ -36,4 +38,27 @@ void isAnagramTests() {
 	assertFalse(Strings.isAnagram(str1, str4));
 	assertTrue(Strings.isAnagram(str1, str1));
 }
+
+@Test
+void joinTest() {
+	String array[]= {"Hello","Vasya"};
+	String expected="Hello Vasya";
+	assertEquals(expected, Strings.join(array, " "));
+	
+}
+@Test
+void joinPerformanceTest() {
+	String array[]=getBigArray();
+	for (int i=0;i<N_RUNS;i++) {
+		Strings.join(array, "  ");
+	}
+}
+private String[] getBigArray() {
+	String res[]= new String[N_STRINGS];
+	for (int i=0; i<res.length; i++) {
+		res[i]="Hello";
+	}
+	return res;
+}
+
 }
