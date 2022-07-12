@@ -1,5 +1,5 @@
 package telran.text;
-
+import static telran.text.RegularExpressions.*;
 	public class Strings {
 		private static final int MIN_NUM = 0;
 		private static final int MAX_NUM = 999;
@@ -92,6 +92,48 @@ static	public String join(String[] array,String delimiter) {
 		return res;
 	}
 	
+public static boolean isIPv4(String ipV4str) {
 
+	return ipV4str.matches(ipV4Regex());
+}
+	public static boolean isJavaVariable(String javaVariable) {
+		//TODO
+		return javaVariable.matches(javaVariableRegex());
+	}
+	
+	public static boolean isArithmeticExpression(String expression) {
+		if(!checkParentheses(expression)) {
+			return false;
+		}
+		
+		expression= removeSpacesAndParentheses(expression);
+		
+		
+			//	return expression.matches(arithmeticExpression());
+		return false;
+	}
+	/**
+	 * 
+	 * @param expression
+	 * return string with no parentheses and spaces
+	 */
+	private static String removeSpacesAndParentheses(String expression) {
+		// TODO Auto-generated method stub
+		
+		return " ";
+	}
+	/**
+	 * 
+	 * @param expression
+	 * @return true if for each '(' there is ')'
+	 * examples (ab)(dg(g)) - true
+	 * (ab))((cd) -false
+	 */
+	private static boolean checkParentheses(String expression) {
+		// TODO Auto-generated method stub
+		//Hint: count with ++ for '(' and --')'.
+		
+		return false;
+	}
 	}
 
